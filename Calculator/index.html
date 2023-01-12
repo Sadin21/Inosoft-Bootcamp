@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculator App</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <style>
+        .card {
+            background-color: rgb(35, 35, 35);
+        }
+        input {
+            background-color: rgb(35, 35, 35);
+            width: 80%;
+            height: 100px;
+            border: 0;
+            border-radius: 10px;
+            font-weight: 600;
+            color: white;
+            margin: 110px 10px;
+            font-size: 3em;
+        }
+        tr  {
+            width: 100vw;
+        }
+        td .btn {
+            height: 60px;
+            width: 95px;
+            margin: 0.2em;
+            background-color: rgb(63, 63, 63);
+            color: yellow;
+        }
+        td .btn:hover {
+            background-color: rgb(63, 63, 63);
+            color: yellow;
+        }
+    </style>
+
+
+
+  </head>
+  <body>
+    <section class="container d-flex" style="height: 100vh;">
+        <div class="col-4 m-auto card" style="height: 700px;border-radius:30px;">
+            <form class="p-2">
+                <input type="text" id="sum" />
+                <table>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn" value="C" onclick="clean()" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="del" onclick="backspace()" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="/" onclick="view('/')" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="X" onclick="view('*')" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn" value="7" onclick="view(7)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="8" onclick="view(8)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="9" onclick="view(9)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="-" onclick="view('-')" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn" value="4" onclick="view(4)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="5" onclick="view(5)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="6" onclick="view(6)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="+" onclick="view('+')" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn" value="1" onclick="view(1)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="2" onclick="view(2)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="3" onclick="view(3)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="=" onclick="equal()" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="btn" value="0" onclick="view(0)" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="000" onclick="view('000')" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="." onclick="view('.')" />
+                        </td>
+                        <td>
+                            <input type="button" class="btn" value="" onclick="" />
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </section>
+
+    <script>
+        function view(val) {
+            document.getElementById("sum").value += val
+        }
+        function clean() {
+            document.getElementById("sum").value = ""
+        }
+        function backspace() {
+            var val = document.getElementById("sum").value;
+            document.getElementById("sum").value = val.substring(
+                0,
+                val.length -1
+            )
+        }
+
+        function equal() {
+            var val = document.getElementById("sum").value;
+            if (val) {
+                document.getElementById("sum").value = eval(val)
+            }
+        }
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+  </body>
+</html>
